@@ -4,8 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-            boolean runAgain = true;
-        while (runAgain)
+
         {
             Scanner in = new Scanner(System.in);
             String trash = "";
@@ -15,12 +14,56 @@ public class Main {
             String playerTwo = "S";
             String yesOrNo = "Y";
 
+            boolean goodOne = false;
+            boolean goodTwo = false;
+            boolean
+            do {
+                System.out.print("Player One please select R)ock, P)aper, or S)cissors ");
+                if(in.hasNextLine())
+                {
+                    playerOne = in.nextLine();
 
-            System.out.print("Player One please select Rock, Paper, or Scissors ");
-            playerOne = in.nextLine();
+                    if (playerOne.equalsIgnoreCase("R")||(playerOne.equalsIgnoreCase("S")||(playerOne.equalsIgnoreCase("P"))))
+                    {
+                        System.out.println("Player one chose: " + playerOne);
+                        goodOne = true;
+                    }
+                    else
+                    {
+                        System.out.println("You entered " + trash + "please try again and choose R, P, or S");
+                    }
+                }
+                else
+                {
+                    trash = in.nextLine();
+                    System.out.println("You entered " + trash + "please try again and choose R, P, or S");
+                }
 
-            System.out.print("Player Two please select Rock, Paper, or Scissors ");
-            playerTwo = in.nextLine();
+            }while(!goodOne);
+
+            do {
+                System.out.print("Player Two please select R)ock, P)aper, or S)cissors ");
+                if(in.hasNextLine())
+                {
+                    playerTwo = in.nextLine();
+
+                    if (playerTwo.equalsIgnoreCase("R")||(playerTwo.equalsIgnoreCase("S")||(playerTwo.equalsIgnoreCase("P"))))
+                    {
+                        System.out.println("Player Two chose: " + playerTwo);
+                        goodTwo = true;
+                    }
+                    else
+                    {
+                        System.out.println("You entered" + trash + "please try again and choose R, P, or S");
+                    }
+                }
+                else
+                {
+                    trash = in.nextLine();
+                   System.out.println("You entered " + trash + "please try again and choose R, P, or S!");
+                }
+
+            }while(!goodTwo);
 
             if (playerOne.equalsIgnoreCase("R"))
             {
@@ -32,14 +75,11 @@ public class Main {
                 {
                     System.out.print("Paper covers Rock, Player Two wins! ");
                 }
-                else if (playerTwo.equalsIgnoreCase("S"))
+                else
                 {
                     System.out.print("Rock breaks Scissors, Player One wins! ");
                 }
-                else
-                {
-                    System.out.println("Illegal move");
-                }
+
             }
             else if (playerOne.equalsIgnoreCase("P"))
             {
@@ -51,14 +91,11 @@ public class Main {
                 {
                     System.out.print("Paper vs Paper, it's a TIE! ");
                 }
-                else if (playerTwo.equalsIgnoreCase("S"))
+                else
                 {
                     System.out.print("Scissors cuts Paper, Player Two wins! ");
                 }
-                else
-                {
-                    System.out.println("Illegal move");
-                }
+
             }
             else //playerOne is scissors
             {
@@ -70,16 +107,13 @@ public class Main {
                 {
                     System.out.print("Scissors cuts Paper, Player One wins! ");
                 }
-                else if (playerTwo.equalsIgnoreCase("S"))
+                else
                 {
                     System.out.print("Scissors vs Scissors, it's a TIE! ");
                 }
-                else
-                {
-                    System.out.println("Illegal move");
-                }
+
             }
-            System.out.println("\nWould you like to play again Y or N? ");
+            System.out.println("\nWould you like to play again [Y/N]: ");
                 playAgain = in.nextLine();
 
                 if (playAgain.equalsIgnoreCase("N"))
