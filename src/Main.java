@@ -4,19 +4,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-        {
             Scanner in = new Scanner(System.in);
             String trash = "";
             String tryAgain;
             String playAgain;
             String playerOne = "R";
             String playerTwo = "S";
-            String yesOrNo = "Y";
 
             boolean goodOne = false;
             boolean goodTwo = false;
-            boolean
+            boolean yesOrNo = false;
+
+            do {
             do {
                 System.out.print("Player One please select R)ock, P)aper, or S)cissors ");
                 if(in.hasNextLine())
@@ -30,7 +29,7 @@ public class Main {
                     }
                     else
                     {
-                        System.out.println("You entered " + trash + "please try again and choose R, P, or S");
+                        System.out.println("You entered an impossible move, please try again and choose R, P, or S");
                     }
                 }
                 else
@@ -46,7 +45,7 @@ public class Main {
                 if(in.hasNextLine())
                 {
                     playerTwo = in.nextLine();
-
+                         
                     if (playerTwo.equalsIgnoreCase("R")||(playerTwo.equalsIgnoreCase("S")||(playerTwo.equalsIgnoreCase("P"))))
                     {
                         System.out.println("Player Two chose: " + playerTwo);
@@ -54,7 +53,8 @@ public class Main {
                     }
                     else
                     {
-                        System.out.println("You entered" + trash + "please try again and choose R, P, or S");
+                        trash = in.nextLine();
+                        System.out.println("You entered an impossible move, please try again and choose R, P, or S");
                     }
                 }
                 else
@@ -116,12 +116,19 @@ public class Main {
             System.out.println("\nWould you like to play again [Y/N]: ");
                 playAgain = in.nextLine();
 
-                if (playAgain.equalsIgnoreCase("N"))
+                if (playAgain.equalsIgnoreCase("Y"))
+                {
+                    System.out.println("Game is restarting!");
+
+                }
+                else
                 {
                     System.out.println("Exiting...thanks for playing!");
+                    yesOrNo = true;
                     System.exit(0);
                 }
-                }
+              
+                }while(!yesOrNo);
 
             }
 
